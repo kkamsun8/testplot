@@ -8,8 +8,9 @@ import { TreeView, TreeItem } from '@material-ui/lab';
 const useStyles = makeStyles({
     root: {
         fontFamily: "Malgun Gothic",
-        fontSize: "20px"
-    },
+        fontSize: "10px",
+        backgroundColor: 'red'
+    }
 });
 
 const Nav = () => {
@@ -17,10 +18,11 @@ const Nav = () => {
     return (
         <nav className="bg-gray-100 rounded inline-block float-left m-1 box-border" style={{ height: 830, width: 250 }}>
             <TreeView
+                classes={classes.root}
                 defaultCollapseIcon={<ExpandMoreIcon />}
                 defaultExpandIcon={<ChevronRightIcon />}
             >
-                <TreeItem nodeId="1" label="안인-강릉 TL1 D1">
+                <TreeItem classes={classes.item} nodeId="1" label="안인-강릉 TL1 D1">
                     <TreeItem nodeId="2" label="EBG" />
                     <TreeItem nodeId="3" label="JB#1" />
                     <TreeItem nodeId="4" label="EBA" />

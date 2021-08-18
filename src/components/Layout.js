@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
     return (
         <div className={styles.app}>
             <Header />
-            <div className="" style={{ height: 835, width: 1920 }}>
+            <div className="flex" style={{ height: 835, width: 1920 }}>
                 <Nav />
                 <Main>
                     {children}

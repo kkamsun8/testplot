@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import Select from 'react-select';
 import TextField from '@material-ui/core/TextField';
+import IconButton from '@material-ui/core/IconButton';
+import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 
 const options = [
     { value: '1', label: '안인-강릉 TL1_345kV_D1' },
@@ -16,6 +19,11 @@ const optionsLocation = [
     { value: '4', label: 'EBA' },
 ]
 
+const phase = [
+    { value: '1', label: 'A' },
+    { value: '2', label: 'B' },
+    { value: '3', label: 'C' }
+]
 const optionsAlarm = [
     { value: '1', label: 'ALL' },
     { value: '2', label: '보이드' },
@@ -43,14 +51,14 @@ const Event = () => {
     );
     return (
         <div className="bg-gray-100 rounded-t" >
-            <p className="text-xm font-bold m-2">* 이벤트</p>
+            <p className="text-lg font-bold m-2">* 이벤트</p>
             <div className="text-xm font-bold flex justify-around items-center" style={{ height: 795 }}>
                 <div>
                     <div className="flex justify-between mb-1" style={{ width: 300 }}>
                         <p className="text-xm font-bold">검색 설정</p>
                         <button className="text-white bg-gray-700 hover:900 rounded w-24 h-7 shadow">갱신</button>
                     </div>
-                    <form className="box-border border-2 p-2 shadow rounded" style={{ width: 300 }}>
+                    <form className="box-border border-2 p-2 shadow rounded flex-row" style={{ width: 300 }}>
                         <label>T/L 선택</label>
                         <Select className="text-center"
                             options={options}
@@ -59,9 +67,15 @@ const Event = () => {
                         <label>개소 선택</label>
                         <Select
                             options={optionsLocation}
+                            defaultValue={optionsLocation[0]}
+                        />
+                        <label>상 선택</label>
+                        <Select
+                            options={phase}
+                            defaultValue={phase[0]}
                         />
                         <label>기간</label>
-                        <div>
+                        <div className="">
                             <TextField
                                 id="date"
                                 type="date"
@@ -82,6 +96,7 @@ const Event = () => {
                         <label>방전유형</label>
                         <Select
                             options={optionsAlarm}
+                            defaultValue={optionsAlarm[0]}
                         />
                     </form>
                 </div>
@@ -115,6 +130,15 @@ const Event = () => {
                                 </tr>
                             ))}
                         </table>
+                        <div className="flex items-center justify-end">
+                            <p className="font-normal text-center"> 1 of 13</p>
+                            <IconButton>
+                                <KeyboardArrowLeft />
+                            </IconButton>
+                            <IconButton>
+                                <KeyboardArrowRight />
+                            </IconButton>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Main = ({ title, children }) => {
     return (
-        <div className=" inline-block bg-gray-100" style={{ width: 1650, height: 833 }}>
+        <div className=" inline-block bg-gray-100" style={{ width: 1670, height: 830 }}>
             {children}
         </div>
     )

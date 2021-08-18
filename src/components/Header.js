@@ -5,8 +5,10 @@ const Header = () => {
     return (
         <div className="bg-gray-600 w-full text-white flex items-center justify-between shadow" style={{ height: 40 }}>
             <Link to="/" exact className="inline-block m-3">
-                <img className="inline-block" src="SMND_White.svg" alt="" />
-                <p className="inline-block text-center m-4">지중 송전 On-Line 부분방전 진단시스템</p>
+                <div className="flex">
+                    <img className="inline-block" src="SMND_White.svg" alt="" />
+                    <p className="inline-block text-center m-4 text-xl">지중 송전 On-Line 부분방전 진단시스템</p>
+                </div>
             </Link>
             <div className="inline-block">
                 <div className="text-sm text-white flex">
