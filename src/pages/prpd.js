@@ -3,6 +3,7 @@ import Plot from 'react-plotly.js';
 // import { prpdData } from '../data/data';
 import PRPDGraph from '../components/PRPDGraph';
 import ReadPrpdData from '../components/ReadPrpdData';
+import Modal from 'react-modal';
 
 
 const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + 1;
@@ -25,6 +26,11 @@ const makeData = () => {
 const Prpd = () => {
     const [prpd, setprpd] = useState(makeData());
     const timer = useRef(null);
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const openModal = () => { setModalOpen(true) }
+    const closeModal = () => { setModalOpen(false) }
+
 
     // const interval = () => {
     //     timer.current = setInterval(() => {
@@ -61,8 +67,21 @@ const Prpd = () => {
                             <p className="text-lg">PRPS 패턴</p>
                         </div>
                     </div>
+                    <button onClick={openModal}>Test Modal</button>
                 </div>
                 <ReadPrpdData></ReadPrpdData>
+
+
+                <Modal
+                    isOpen={modalOpen}
+                    onRequestClose={closeModal}
+                    shouldCloseOnOverlayClick={true}
+                    className="bg-red-700 top-1/2 left-1/2 absolute"
+                >
+                    <div style={{ width: 800, height: 200 }}>
+                        Test
+                    </div>
+                </Modal>
                 {/* <Plot
                 data={[
                     {
